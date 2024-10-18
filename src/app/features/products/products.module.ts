@@ -7,13 +7,22 @@ import { ProductAddComponent } from './components/product-add/product-add.compon
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductsRoutingModule } from './products-routing.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductAddComponent,
     ProductEditComponent,
   ],
-  imports: [CommonModule, ProductsRoutingModule, FormsModule, MatTableModule],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    FormsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   providers: [ProductsService],
 })
 export class ProductsModule {}

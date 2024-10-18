@@ -39,10 +39,18 @@
   <ng-container matColumnDef="action">
     <td mat-header-cell *matHeaderCellDef>Actions</td>
     <td mat-cell *matCellDef="let element">
-      <div>
-        <button>OK</button>
-        <button>Hello</button>
-      </div>
+      <button
+        mat-flat-button
+        color="accent"
+        [routerLink]="['/edit/', element.id]"
+      >
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+      <button mat-flat-button color="warn" (click)="deleProduct(element.id)">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
     </td>
   </ng-container>
 
