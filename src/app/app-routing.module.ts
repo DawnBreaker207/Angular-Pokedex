@@ -5,7 +5,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./features/features.module').then((m) => m.FeaturesModule),
+      import('./pokemon/pokemon.module').then(m => m.PokemonModule),
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
   },
 ];
 
