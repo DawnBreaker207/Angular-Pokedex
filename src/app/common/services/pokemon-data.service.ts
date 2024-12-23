@@ -10,7 +10,8 @@ export class PokemonDataService {
   pokemon: Observable<Pokemon[]>;
   constructor(private http: HttpClient) {
     this.pokemon = this.http
-      .get<Pokemon[]>('/api/pokemon.json')
+      .get<Pokemon[]>('/api/pokemon')
+      // .get<Pokemon[]>('/api/pokemon.json')
       .pipe(map(pokemon => pokemon.map(p => this.setPokemon(p))));
     shareReplay(1);
   }

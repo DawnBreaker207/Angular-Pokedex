@@ -4,6 +4,9 @@
     "./src/**/*.{html,htm,css,js}"
   ],
   "server": {
-    "baseDir": "./src"
+    "baseDir": "./src",
+    "routes": {
+      "/api": "./src/api/pokemon.json"
+    }
   }
 }
