@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "server":"lite-server --config=bs-config.json",
+    "server": "lite-server --config=bs-config.json",
     "watch": "ng build --watch --configuration development",
     "start:prod": "ng build --configuration production && lite-server --baseDir dist/ng-pokedex",
     "bundle-report": "source-map-explorer dist/ng-pokedex/**/*.js",
@@ -32,7 +32,6 @@
     "rxjs": "~7.8.0",
     "@ngx-lite/modal": "^0.5.7",
     "@ngx-lite/nav-drawer": "^0.4.7",
-    "@ngx-lite/util": "0.0.1",
     "sandbox": "file:",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

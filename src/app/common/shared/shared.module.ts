@@ -7,6 +7,8 @@ import { FormSearchComponent } from './components/form-search/form-search.compon
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NgxNavDrawerModule } from '@ngx-lite/nav-drawer';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 const components = [FormSearchComponent, FooterComponent, HeaderComponent];
 const modules = [
@@ -15,6 +17,8 @@ const modules = [
   RouterModule,
   NgxNavDrawerModule,
   NgxModalModule,
+  MatDialogModule,
+  MatSidenavModule,
 ];
 @NgModule({
   imports: [...modules],

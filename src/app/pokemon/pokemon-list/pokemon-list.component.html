@@ -7,7 +7,7 @@
     class="cart--media"
     *ngFor="let p of pokemon | async"
     [routerLink]="['./', p.id]">
-    <i [class]="' sprite sprite-' + p.id"></i>
+    <i [class]="'sprite sprite-' + p.id"></i>
     <div class="card--media__content">
       {{ p.name }}
       <span bp="float-right">#{{ p.id }}</span>
