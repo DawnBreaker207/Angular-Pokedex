@@ -1,64 +1,70 @@
 import { Pokemon } from '@/app/common/interface/pokemon';
-import { PokemonDataService } from '@/app/common/services/pokemon-data.service';
-import { Component, HostListener, OnDestroy } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { distinctUntilChanged, map, mergeMap, Observable, tap } from 'rxjs';
-
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  ViewChild,
+} from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export enum KeyBoardKeys {
   ArrowRight = 'ArrowRight',
   ArrowLeft = 'ArrowLeft',
+  ArrowUp = 'ArrowUp',
+  ArrowDown = 'ArrowDown',
 }
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss',
 })
-export class PokemonDetailComponent implements OnDestroy {
-  pokemon: Observable<Pokemon>;
-  show = true;
-  constructor(
-    private title: Title,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private pokemonDataService: PokemonDataService
-  ) {
-    this.pokemon = this.activatedRoute.params.pipe(
-      distinctUntilChanged(),
-      mergeMap(params => this.getPokemon(params['id']) as Observable<Pokemon>),
-      tap(pokemon =>
-        this.title.setTitle(`Pokémon #${pokemon.id} ${pokemon.name}`)
-      )
-    );
-  }
+export class PokemonDetailComponent {
+  @ViewChild('closeButton') closeButton!: ElementRef;
 
-  ngOnDestroy(): void {
-    this.title.setTitle('Search for Pokémon');
-  }
-  close(show: boolean) {
-    if (!show) {
-      this.router.navigateByUrl('/pokemon');
+  constructor(
+    private dialogRef: MatDialogRef<PokemonDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) public pokemon: Pokemon
+  ) {}
+
+  @HostListener('window:click', ['$event'])
+  onClick(event: MouseEvent): void {
+    const modalElement = document.querySelector('.mat-dialog-content');
+    if (modalElement && !modalElement.contains(event.target as Node)) {
+      this.dialogRef.close();
     }
   }
 
   @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    if (event.key === KeyBoardKeys.ArrowRight) {
-      const paramId = +this.activatedRoute.snapshot.params['id'];
-      const id = paramId === 1 ? 151 : paramId - 1;
-      this.router.navigateByUrl(`/pokemon/${id}`);
+  onKeyUp(event: KeyboardEvent): void {
+    if (
+      event.key === KeyBoardKeys.ArrowLeft ||
+      event.key === KeyBoardKeys.ArrowRight
+    ) {
+      // const direction = event.key === 'ArrowRight' ? 1 : -1;
+      // this.changePokemon(direction);
     }
 
-    if (event.key === KeyBoardKeys.ArrowLeft) {
-      const paramId = +this.activatedRoute.snapshot.params['id'];
-      const id = paramId < 151 ? paramId + 1 : 1;
-      this.router.navigateByUrl(`/pokemon/${id}`);
+    if (
+      event.key === KeyBoardKeys.ArrowUp ||
+      event.key === KeyBoardKeys.ArrowDown
+    ) {
+      if (this.closeButton) {
+        // this.closeButton.nativeElement.focus();
+        this.dialogRef.close();
+      }
     }
   }
 
-  private getPokemon(id: string) {
-    return this.pokemonDataService.pokemon.pipe(
-      map(pokemon => pokemon.find(p => p.id === +id))
-    );
-  }
+  // private changePokemon(direction: number): void {
+  //   const newId = this.pokemon.id + direction;
+  //   if (newId > 0 && newId <= 151) {
+  //     this.pokemonService.pokemon.subscribe(item => {
+  //       this.dialogRef.close();
+  //       this.dialog.open(PokemonDetailComponent, {
+  //         data: item,
+  //       });
+  //     });
+  //     // this.dialogRef.close();
+  //   }
+  // }
 }

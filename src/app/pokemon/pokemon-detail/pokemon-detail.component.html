@@ -1,6 +1,15 @@
-<ngx-modal [visible]="true" (visibleChange)="close($event)">
-  <div bp="grid" #view *ngIf="pokemon | async; let pokemon">
+<div mat-dialog-content (keyup)="onKeyUp($event)" tabindex="0">
+  <div bp="grid">
     <div bp="7@sm 8@md">
+      <button
+        mat-icon-button
+        #closeButton
+        class="close-btn"
+        mat-dialog-close
+        aria-label="Close"
+        tabindex="1">
+        <mat-icon>close</mat-icon>
+      </button>
       <h1>{{ pokemon.name }} #{{ pokemon.id }}</h1>
       <div *ngFor="let type of pokemon.types" class="type" [ngClass]="type">
         {{ type }}
@@ -12,4 +21,4 @@
       <p>{{ pokemon.description }}</p>
     </div>
   </div>
-</ngx-modal>
+</div>
