@@ -1,5 +1,5 @@
 <div mat-dialog-content (keyup)="onKeyUp($event)" tabindex="0">
-  <div bp="grid">
+  <div bp="flex" style="flex-direction: row">
     <div bp="7@sm 8@md">
       <button
         mat-icon-button
@@ -20,5 +20,6 @@
       </p>
       <p>{{ pokemon.description }}</p>
     </div>
+    <i [class]="'sprite sprite-' + pokemon.id"></i>
   </div>
 </div>

@@ -38,4 +38,11 @@ export class PokemonListComponent {
   search(term: string) {
     this.pokemonService.search(term);
   }
+
+  handleKeyboard(event: KeyboardEvent, pokemon: Pokemon): void {
+    if (event.key === 'Enter' || event.key === '') {
+      event.preventDefault();
+      this.openPokemonDetail(pokemon);
+    }
+  }
 }

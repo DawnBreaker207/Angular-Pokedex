@@ -20,11 +20,42 @@ mat-drawer-container {
 }
 
 .contents {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  mat-list-item {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      padding: 16px;
+      font-size: 16px;
+      color: $color-pokedex-red;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      mat-icon {
+        margin-right: 16px;
+        cursor: pointer;
+        font-size: 24px;
+        display: inline-block;
+      }
+      span {
+        line-height: 24px; /* Căn chỉnh text theo chiều cao icon */
+      }
+    }
+  }
 }
-mat-icon {
-  cursor: pointer;
-}
+
 mat-toolbar {
   background-color: $color-pokedex-red;
   color: white;

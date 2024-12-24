@@ -6,8 +6,9 @@
   <a
     class="cart--media"
     *ngFor="let p of pokemon | async"
+    (keydown)="handleKeyboard($event, p)"
     (click)="openPokemonDetail(p)"
-    [routerLink]="['./', p.id]">
+    tabindex="0">
     <i [class]="'sprite sprite-' + p.id"></i>
     <div class="card--media__content">
       {{ p.name }}
@@ -15,5 +16,3 @@
     </div>
   </a>
 </div>
-
-<router-outlet />
