@@ -12,8 +12,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
-const components = [FormSearchComponent, FooterComponent, HeaderComponent];
+const components = [
+  FormSearchComponent,
+  FooterComponent,
+  HeaderComponent,
+  SidebarComponent,
+];
 const modules = [
   CommonModule,
   ReactiveFormsModule,

@@ -1,14 +1,4 @@
-@import '../styles/_config.scss';
-
-main {
-  padding: 74px 16px 42px 16px;
-}
-mat-drawer-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
+@import '../../../../../styles/_config.scss';
 .drawer {
   position: fixed;
   top: 0;
@@ -62,8 +52,4 @@ mat-drawer-container {
       }
     }
   }
-}
-
-mat-drawer-container {
-  transition: opacity 0.3s ease;
 }

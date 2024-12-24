@@ -5,7 +5,9 @@
     [opened]="navOpen"
     [ngClass]="{ opened: navOpen, closed: !navOpen }">
     <mat-toolbar>
-      <mat-icon (click)="navOpen = false">close</mat-icon>
+      <mat-icon style="cursor: pointer" (click)="navOpen = false"
+        >close</mat-icon
+      >
     </mat-toolbar>
     <div class="contents">
       <mat-list-item>
@@ -21,6 +23,7 @@
       </mat-list-item>
     </div>
   </mat-drawer>
+  <!-- <app-sidebar [navTrigger]="navOpen" /> -->
   <app-header (toggleSidebar)="navOpen = !navOpen" />
   <main>
     <router-outlet />
