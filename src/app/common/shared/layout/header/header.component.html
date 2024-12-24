@@ -1,13 +1,5 @@
 <header role="banner">
-  <button
-    (click)="navOpen = !navOpen"
-    aria-label="Open Menu"
-    class="btn btn--clear">
+  <button (click)="onMenuClick()" aria-label="Open Menu" class="btn btn--clear">
     <mat-icon>menu</mat-icon>
   </button>
-
-  <ngx-nav-drawer [(open)]="navOpen">
-    <a routerLink="/"> <mat-icon>home</mat-icon> Home </a>
-    <a routerLink="/about"> <mat-icon>info</mat-icon> About</a>
-  </ngx-nav-drawer>
 </header>

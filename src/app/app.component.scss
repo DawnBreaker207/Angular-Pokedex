@@ -1,3 +1,41 @@
+@import '../styles/_config.scss';
+
 main {
   padding: 74px 16px 42px 16px;
+}
+mat-drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.contents {
+  padding: 16px;
+}
+mat-icon {
+  cursor: pointer;
+}
+mat-toolbar {
+  background-color: $color-pokedex-red;
+  color: white;
+}
+
+mat-drawer-container {
+  transition: opacity 0.3s ease;
+}
+.contents a {
+  text-decoration: none; /* Loại bỏ gạch chân */
+  color: $color-pokedex-red; /* Giữ màu sắc kế thừa từ bố cục (ví dụ, từ toolbar hoặc theme) */
+  display: flex;
+  align-items: center;
 }
