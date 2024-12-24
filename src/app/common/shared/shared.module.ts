@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FormSearchComponent } from './components/form-search/form-search.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
-import { NgxNavDrawerModule } from '@ngx-lite/nav-drawer';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +18,6 @@ const modules = [
   CommonModule,
   ReactiveFormsModule,
   RouterModule,
-  NgxNavDrawerModule,
   MatDialogModule,
   MatSidenavModule,
   MatIconModule,
